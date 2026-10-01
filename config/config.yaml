@@ -1,0 +1,44 @@
+project:
+  name: AI Indian Urban Traffic Digital Twin
+  version: 0.1.0
+  environment: development
+
+simulation:
+  simulator: SUMO
+  timestep: 1.0
+  seed: 42
+
+traffic:
+  junctions:
+    - J1
+    - J2
+    - J3
+    - J4
+
+  vehicle_classes:
+    - car
+    - motorcycle
+    - scooter
+    - auto_rickshaw
+    - bus
+    - truck
+    - van
+    - bicycle
+    - pedestrian
+    - ambulance
+    - fire_engine
+    - police_vehicle
+
+signal:
+  min_green_time: 15
+  max_green_time: 90
+  yellow_time: 3
+  all_red_time: 3
+
+ai:
+  prediction_horizon: 60
+  decision_interval: 5
+
+logging:
+  level: INFO
+  directory: logs

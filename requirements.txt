@@ -1,0 +1,9 @@
+numpy
+pandas
+opencv-python
+python-dotenv
+pydantic
+fastapi
+uvicorn
+streamlit
+requests
