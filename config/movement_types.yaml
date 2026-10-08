@@ -1,0 +1,17 @@
+J1:
+
+  WEST_TO_EAST: straight
+  WEST_TO_NORTH: left
+  WEST_TO_SOUTH: right
+
+  EAST_TO_WEST: straight
+  EAST_TO_SOUTH: left
+  EAST_TO_NORTH: right
+
+  NORTH_TO_SOUTH: straight
+  NORTH_TO_EAST: left
+  NORTH_TO_WEST: right
+
+  SOUTH_TO_NORTH: straight
+  SOUTH_TO_WEST: left
+  SOUTH_TO_EAST: right

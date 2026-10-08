@@ -1,18 +1,51 @@
+# Python
 .venv/
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment
 .env
+.env.*
+!.env.example
 
-logs/*
-*.log
-
-data/raw/*
-data/video/*
-models/*.pt
-models/**/*.pt
-
+# IDE
 .vscode/
 .idea/
 
+# Logs
+logs/
+*.log
+
+# Data and datasets
+data/
+dataset/
+
+# Generated outputs
+runs/
+metrics/
+models/
+
+# ML weights
+*.pt
+*.pth
+*.onnx
+*.engine
+*.weights
+
+# Test/cache
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Generated files
+project_tree.txt
+README_files/
+
+# Temporary
 *.tmp
 *.bak
+*.swp

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<edges version="1.0">
+    <edge id="A1_EDGE" from="A1_IN" to="J1" numLanes="2" speed="13.89"/>
+    <edge id="A2_EDGE" from="A2_IN" to="J1" numLanes="1" speed="13.89"/>
+    <edge id="A3_EDGE" from="A3_IN" to="J1" numLanes="2" speed="13.89"/>
+    <edge id="A4_EDGE" from="A4_IN" to="J1" numLanes="1" speed="13.89"/>
+    <edge id="J1_J2" from="J1" to="J2" numLanes="2" speed="13.89"/>
+    <edge id="B1_EDGE" from="B1_IN" to="J2" numLanes="2" speed="13.89"/>
+    <edge id="B2_EDGE" from="B2_IN" to="J2" numLanes="1" speed="13.89"/>
+    <edge id="B3_EDGE" from="B3_IN" to="J2" numLanes="1" speed="13.89"/>
+    <edge id="J2_J3" from="J2" to="J3" numLanes="2" speed="13.89"/>
+    <edge id="C1_EDGE" from="C1_IN" to="J3" numLanes="1" speed="13.89"/>
+    <edge id="C2_EDGE" from="C2_IN" to="J3" numLanes="2" speed="13.89"/>
+    <edge id="J1_EXIT" from="J1" to="A4_IN" numLanes="1" speed="13.89"/>
+    <edge id="J2_EXIT" from="J2" to="B1_IN" numLanes="1" speed="13.89"/>
+    <edge id="J3_EXIT" from="J3" to="C1_IN" numLanes="1" speed="13.89"/>
+</edges>

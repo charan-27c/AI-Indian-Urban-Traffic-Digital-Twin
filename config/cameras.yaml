@@ -1,0 +1,42 @@
+cameras:
+
+  CAM_J1_NORTH:
+    source: "data/video/traffic_test.mp4"
+    junction_id: "J1"
+    approach_id: "NORTH"
+
+    rois:
+      - roi_id: "ROI_J1_NORTH"
+        points:
+          - [100, 100]
+          - [500, 100]
+          - [500, 500]
+          - [100, 500]
+
+
+  CAM_J1_SOUTH:
+    source: "data/video/traffic_test.mp4"
+    junction_id: "J1"
+    approach_id: "SOUTH"
+
+    rois:
+      - roi_id: "ROI_J1_SOUTH"
+        points:
+          - [100, 100]
+          - [500, 100]
+          - [500, 500]
+          - [100, 500]
+
+
+  CAM_J2_NORTH:
+    source: "data/video/traffic_test.mp4"
+    junction_id: "J2"
+    approach_id: "NORTH"
+
+    rois:
+      - roi_id: "ROI_J2_NORTH"
+        points:
+          - [100, 100]
+          - [500, 100]
+          - [500, 500]
+          - [100, 500]

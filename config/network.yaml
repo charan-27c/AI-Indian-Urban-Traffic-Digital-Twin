@@ -1,0 +1,272 @@
+# ============================================================
+# AI INDIAN URBAN TRAFFIC DIGITAL TWIN
+# DYNAMIC SUMO NETWORK DEFINITION
+# ============================================================
+
+network:
+
+  name: advanced_dynamic_test_network
+
+  # ==========================================================
+  # JUNCTIONS
+  # ==========================================================
+
+  junctions:
+
+    J1:
+      type: signalized
+      node: J1
+
+      approaches:
+        - A1
+        - A2
+        - A3
+        - A4
+
+
+    J2:
+      type: signalized
+      node: J2
+
+      approaches:
+        - B1
+        - B2
+        - B3
+
+
+    J3:
+      type: signalized
+      node: J3
+
+      approaches:
+        - C1
+        - C2
+
+
+  # ==========================================================
+  # PHYSICAL NODES
+  # ==========================================================
+  #
+  # These define the physical road network.
+  #
+  # The application will later discover topology from SUMO.
+  #
+  # ==========================================================
+
+  nodes:
+
+    - id: J1
+      x: 0
+      y: 0
+      type: traffic_light
+
+    - id: J2
+      x: 250
+      y: 0
+      type: traffic_light
+
+    - id: J3
+      x: 500
+      y: 0
+      type: traffic_light
+
+
+    # --------------------------------------------------------
+    # External road endpoints
+    # --------------------------------------------------------
+
+    - id: A1_IN
+      x: 0
+      y: 200
+      type: priority
+
+    - id: A2_IN
+      x: 0
+      y: -200
+      type: priority
+
+    - id: A3_IN
+      x: -200
+      y: 0
+      type: priority
+
+    - id: A4_IN
+      x: 200
+      y: 0
+      type: priority
+
+
+    - id: B1_IN
+      x: 250
+      y: 200
+      type: priority
+
+    - id: B2_IN
+      x: 250
+      y: -200
+      type: priority
+
+    - id: B3_IN
+      x: 250
+      y: -200
+      type: priority
+
+
+    - id: C1_IN
+      x: 500
+      y: 200
+      type: priority
+
+    - id: C2_IN
+      x: 500
+      y: -200
+      type: priority
+
+
+  # ==========================================================
+  # PHYSICAL EDGES
+  # ==========================================================
+  #
+  # IMPORTANT:
+  #
+  # These are roads, NOT movements.
+  #
+  # We do NOT define:
+  #
+  #   left
+  #   right
+  #   straight
+  #
+  # Those will be discovered later from lane connections.
+  #
+  # ==========================================================
+
+  edges:
+
+    # --------------------------------------------------------
+    # J1 incoming approaches
+    # --------------------------------------------------------
+
+    - id: A1_EDGE
+      from: A1_IN
+      to: J1
+      lanes: 2
+      speed: 13.89
+
+    - id: A2_EDGE
+      from: A2_IN
+      to: J1
+      lanes: 1
+      speed: 13.89
+
+    - id: A3_EDGE
+      from: A3_IN
+      to: J1
+      lanes: 2
+      speed: 13.89
+
+    - id: A4_EDGE
+      from: A4_IN
+      to: J1
+      lanes: 1
+      speed: 13.89
+
+
+    # --------------------------------------------------------
+    # J1 → J2
+    # --------------------------------------------------------
+
+    - id: J1_J2
+      from: J1
+      to: J2
+      lanes: 2
+      speed: 13.89
+
+
+    # --------------------------------------------------------
+    # J2 incoming approaches
+    # --------------------------------------------------------
+
+    - id: B1_EDGE
+      from: B1_IN
+      to: J2
+      lanes: 2
+      speed: 13.89
+
+    - id: B2_EDGE
+      from: B2_IN
+      to: J2
+      lanes: 1
+      speed: 13.89
+
+    - id: B3_EDGE
+      from: B3_IN
+      to: J2
+      lanes: 1
+      speed: 13.89
+
+
+    # --------------------------------------------------------
+    # J2 → J3
+    # --------------------------------------------------------
+
+    - id: J2_J3
+      from: J2
+      to: J3
+      lanes: 2
+      speed: 13.89
+
+
+    # --------------------------------------------------------
+    # J3 incoming approaches
+    # --------------------------------------------------------
+
+    - id: C1_EDGE
+      from: C1_IN
+      to: J3
+      lanes: 1
+      speed: 13.89
+
+    - id: C2_EDGE
+      from: C2_IN
+      to: J3
+      lanes: 2
+      speed: 13.89
+
+
+    # --------------------------------------------------------
+    # Exit roads
+    # --------------------------------------------------------
+
+    - id: J1_EXIT
+      from: J1
+      to: A4_IN
+      lanes: 1
+      speed: 13.89
+
+    - id: J2_EXIT
+      from: J2
+      to: B1_IN
+      lanes: 1
+      speed: 13.89
+
+    - id: J3_EXIT
+      from: J3
+      to: C1_IN
+      lanes: 1
+      speed: 13.89
+
+
+  # ==========================================================
+  # GENERATION
+  # ==========================================================
+
+  generation:
+
+    simulator: SUMO
+
+    output:
+
+      directory: simulation/networks
+
+      network_file: ai_traffic.net.xml

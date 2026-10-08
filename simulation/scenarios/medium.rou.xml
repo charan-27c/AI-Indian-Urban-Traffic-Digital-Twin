@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes>
+    <vType id="car" vClass="passenger" accel="2.6" decel="4.5" sigma="0.5" length="4.5" minGap="2.0" maxSpeed="13.89" />
+    <vType id="motorcycle" vClass="motorcycle" accel="3.0" decel="5.0" sigma="0.7" length="2.2" minGap="1.0" maxSpeed="15.0" />
+    <vType id="scooter" vClass="motorcycle" accel="2.8" decel="5.0" sigma="0.7" length="2.0" minGap="1.0" maxSpeed="13.89" />
+    <vType id="auto_rickshaw" vClass="passenger" accel="2.2" decel="4.0" sigma="0.6" length="3.0" minGap="1.5" maxSpeed="11.11" />
+    <vType id="bus" vClass="bus" accel="1.2" decel="3.5" sigma="0.4" length="12.0" minGap="3.0" maxSpeed="11.11" />
+    <vType id="truck" vClass="truck" accel="1.4" decel="3.5" sigma="0.5" length="10.0" minGap="3.0" maxSpeed="11.11" />
+    <vType id="van" vClass="delivery" accel="2.0" decel="4.0" sigma="0.5" length="5.5" minGap="2.0" maxSpeed="12.5" />
+    <vType id="bicycle" vClass="bicycle" accel="1.5" decel="2.5" sigma="0.8" length="1.8" minGap="0.8" maxSpeed="6.0" />
+    <vType id="ambulance" vClass="emergency" accel="3.5" decel="5.5" sigma="0.3" length="5.5" minGap="2.0" maxSpeed="16.67" />
+    <vType id="fire_engine" vClass="emergency" accel="2.5" decel="5.0" sigma="0.3" length="8.0" minGap="2.5" maxSpeed="15.0" />
+    <vType id="police_vehicle" vClass="emergency" accel="3.2" decel="5.5" sigma="0.3" length="5.0" minGap="2.0" maxSpeed="16.67" />
+    <route id="route_0001" edges="A1_EDGE J1_J2 J2_J3 J3_EXIT" />
+    <route id="route_0002" edges="A1_EDGE J1_J2 J2_EXIT" />
+    <route id="route_0003" edges="A1_EDGE J1_EXIT" />
+    <route id="route_0004" edges="A2_EDGE J1_J2 J2_J3 J3_EXIT" />
+    <route id="route_0005" edges="A2_EDGE J1_J2 J2_EXIT" />
+    <route id="route_0006" edges="A2_EDGE J1_EXIT" />
+    <route id="route_0007" edges="A3_EDGE J1_J2 J2_J3 J3_EXIT" />
+    <route id="route_0008" edges="A3_EDGE J1_J2 J2_EXIT" />
+    <route id="route_0009" edges="A3_EDGE J1_EXIT" />
+    <route id="route_0010" edges="B2_EDGE J2_J3 J3_EXIT" />
+    <route id="route_0011" edges="B2_EDGE J2_EXIT" />
+    <route id="route_0012" edges="B3_EDGE J2_J3 J3_EXIT" />
+    <route id="route_0013" edges="B3_EDGE J2_EXIT" />
+    <route id="route_0014" edges="C2_EDGE J3_EXIT" />
+    <flow id="medium_flow_0000" type="scooter" route="route_0001" begin="0" end="1800" vehsPerHour="528" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0001" type="auto_rickshaw" route="route_0002" begin="0" end="1800" vehsPerHour="519" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0002" type="bicycle" route="route_0003" begin="0" end="1800" vehsPerHour="458" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0003" type="scooter" route="route_0004" begin="0" end="1800" vehsPerHour="423" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0004" type="scooter" route="route_0005" begin="0" end="1800" vehsPerHour="524" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0005" type="scooter" route="route_0006" begin="0" end="1800" vehsPerHour="531" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0006" type="car" route="route_0007" begin="0" end="1800" vehsPerHour="496" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0007" type="car" route="route_0008" begin="0" end="1800" vehsPerHour="389" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0008" type="car" route="route_0009" begin="0" end="1800" vehsPerHour="355" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0009" type="car" route="route_0010" begin="0" end="1800" vehsPerHour="360" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0010" type="motorcycle" route="route_0011" begin="0" end="1800" vehsPerHour="481" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0011" type="car" route="route_0012" begin="0" end="1800" vehsPerHour="421" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0012" type="van" route="route_0013" begin="0" end="1800" vehsPerHour="398" departLane="best" departSpeed="max" />
+    <flow id="medium_flow_0013" type="scooter" route="route_0014" begin="0" end="1800" vehsPerHour="483" departLane="best" departSpeed="max" />
+</routes>

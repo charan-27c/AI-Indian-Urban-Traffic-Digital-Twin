@@ -1,44 +1,360 @@
+# ============================================================
+# AI INDIAN URBAN TRAFFIC DIGITAL TWIN
+# GLOBAL CONFIGURATION
+# ============================================================
+
 project:
   name: AI Indian Urban Traffic Digital Twin
-  version: 0.1.0
+  version: 1.0.0
   environment: development
 
+
+# ============================================================
+# NETWORK
+# ============================================================
+
+network:
+
+  # Source of road/junction topology.
+  #
+  # Options:
+  #   config
+  #   sumo
+  #   osm
+  #   auto
+  #
+  topology_source: sumo
+
+  # Network definition used to build/discover topology.
+  definition_file: config/network.yaml
+
+  # Generated SUMO network.
+  sumo_network_file: simulation/networks/ai_traffic.net.xml
+
+  # Do NOT maintain a fixed list such as J1/J2/J3/J4 here.
+  dynamic_junction_discovery: true
+
+  dynamic_lane_discovery: true
+
+  dynamic_movement_discovery: true
+
+  dynamic_connection_discovery: true
+
+
+# ============================================================
+# SIMULATION
+# ============================================================
+
 simulation:
+
   simulator: SUMO
+
   timestep: 1.0
+
   seed: 42
 
-traffic:
-  junctions:
-    - J1
-    - J2
-    - J3
-    - J4
+  begin: 0
 
-  vehicle_classes:
-    - car
-    - motorcycle
-    - scooter
-    - auto_rickshaw
-    - bus
-    - truck
-    - van
-    - bicycle
-    - pedestrian
+  end: 1800
+
+  step_length: 1.0
+
+  collision_action: warn
+
+  teleport_time: -1
+
+
+
+
+# ============================================================
+# PERCEPTION
+# ============================================================
+
+perception:
+
+  detection:
+
+    enabled: true
+
+    framework: ultralytics
+
+    model: models/yolo/best.pt
+
+    confidence_threshold: 0.35
+
+    iou_threshold: 0.50
+
+    image_size: 640
+
+
+  tracking:
+
+    enabled: true
+
+    algorithm: bytetrack
+
+    track_buffer: 30
+
+
+  classification:
+
+    enabled: true
+
+    vehicle_classes:
+
+      - car
+      - motorcycle
+      - scooter
+      - auto_rickshaw
+      - bus
+      - truck
+      - tractor
+      - van
+      - jeep
+      - bicycle
+      - pedestrian
+      - ambulance
+      - fire_engine
+      - police_vehicle
+
+
+# ============================================================
+# TRAFFIC STATE
+# ============================================================
+
+traffic_state:
+
+  enabled: true
+
+  metrics:
+
+    vehicle_count: true
+
+    queue_length: true
+
+    average_speed: true
+
+    density: true
+
+    occupancy: true
+
+    waiting_time: true
+
+    delay: true
+
+    pressure: true
+
+    flow_rate: true
+
+
+  update_interval: 5
+
+
+# ============================================================
+# PREDICTION
+# ============================================================
+
+prediction:
+
+  enabled: true
+
+  horizon: 60
+
+  decision_interval: 5
+
+  history_window: 300
+
+  models:
+
+    baseline:
+      enabled: true
+      type: xgboost
+
+    temporal:
+      enabled: false
+      type: lstm
+
+    spatiotemporal:
+      enabled: false
+      type: temporal_gnn
+
+
+# ============================================================
+# SIGNAL CONTROL
+# ============================================================
+
+signal:
+
+  enabled: true
+
+  adaptive: true
+
+  dynamic_phase_generation: true
+
+  min_green_time: 15
+
+  max_green_time: 90
+
+  yellow_time: 3
+
+  all_red_time: 3
+
+  decision_interval: 5
+
+
+# ============================================================
+# SAFETY SUPERVISOR
+# ============================================================
+
+safety:
+
+  enabled: true
+
+  fail_safe: true
+
+  conflict_protection: true
+
+  spillback_protection: true
+
+  starvation_protection: true
+
+  emergency_priority: true
+
+  minimum_green_enforcement: true
+
+  maximum_green_enforcement: true
+
+  junction_handover_clearance: true
+
+  movement_handover_validation: true
+
+  max_movement_wait: 90
+
+  max_junction_wait: 90
+
+
+# ============================================================
+# EMERGENCY VEHICLES
+# ============================================================
+
+emergency:
+
+  enabled: true
+
+  priority_classes:
+
     - ambulance
     - fire_engine
     - police_vehicle
 
-signal:
-  min_green_time: 15
-  max_green_time: 90
-  yellow_time: 3
-  all_red_time: 3
+  route_aware_priority: true
 
-ai:
-  prediction_horizon: 60
-  decision_interval: 5
+  corridor_coordination: true
+
+  preemption_enabled: true
+
+
+# ============================================================
+# DIGITAL TWIN
+# ============================================================
+
+digital_twin:
+
+  enabled: true
+
+  synchronization:
+
+    enabled: true
+
+    interval: 1.0
+
+  state:
+
+    vehicles: true
+
+    junctions: true
+
+    lanes: true
+
+    movements: true
+
+    signals: true
+
+    traffic_metrics: true
+
+
+# ============================================================
+# DATA
+# ============================================================
+
+data:
+
+  raw: data/raw
+
+  processed: data/processed
+
+  annotations: data/annotations
+
+  external: data/external
+
+  metadata: data/metadata
+
+  metrics: metrics
+
+
+# ============================================================
+# API
+# ============================================================
+
+api:
+
+  enabled: true
+
+  host: 127.0.0.1
+
+  port: 8000
+
+  reload: true
+
+  websocket_enabled: true
+
+
+# ============================================================
+# DASHBOARD
+# ============================================================
+
+dashboard:
+
+  enabled: true
+
+  framework: streamlit
+
+  refresh_interval: 2
+
+
+# ============================================================
+# OBSERVABILITY
+# ============================================================
+
+observability:
+
+  metrics_enabled: true
+
+  prometheus_enabled: false
+
+  grafana_enabled: false
+
+
+# ============================================================
+# LOGGING
+# ============================================================
 
 logging:
+
   level: INFO
+
   directory: logs
+
+  structured: true
+
+  rotation: true

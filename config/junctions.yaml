@@ -1,0 +1,30 @@
+junctions:
+
+  J1:
+    name: Junction_1
+    approaches:
+      - NORTH
+      - SOUTH
+      - EAST
+      - WEST
+
+  J2:
+    name: Junction_2
+    approaches:
+      - NORTH
+      - EAST
+      - SOUTH
+
+  J3:
+    name: Junction_3
+    approaches:
+      - WEST
+      - EAST
+
+  J4:
+    name: Junction_4
+    approaches:
+      - NORTH
+      - SOUTH
+      - EAST
+      - WEST

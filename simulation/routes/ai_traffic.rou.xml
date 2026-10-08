@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<routes>
+    <vType id="indian_vehicle" vClass="passenger" accel="2.6" decel="4.5" sigma="0.5" length="4.5" minGap="2.0" maxSpeed="13.89" />
+    <route id="route_0001" edges="A1_EDGE J1_J2 J2_J3 J3_EXIT" />
+    <route id="route_0002" edges="A1_EDGE J1_J2 J2_EXIT" />
+    <route id="route_0003" edges="A1_EDGE J1_EXIT" />
+    <route id="route_0004" edges="A2_EDGE J1_J2 J2_J3 J3_EXIT" />
+    <route id="route_0005" edges="A2_EDGE J1_J2 J2_EXIT" />
+    <route id="route_0006" edges="A2_EDGE J1_EXIT" />
+    <route id="route_0007" edges="A3_EDGE J1_J2 J2_J3 J3_EXIT" />
+    <route id="route_0008" edges="A3_EDGE J1_J2 J2_EXIT" />
+    <route id="route_0009" edges="A3_EDGE J1_EXIT" />
+    <route id="route_0010" edges="B2_EDGE J2_J3 J3_EXIT" />
+    <route id="route_0011" edges="B2_EDGE J2_EXIT" />
+    <route id="route_0012" edges="B3_EDGE J2_J3 J3_EXIT" />
+    <route id="route_0013" edges="B3_EDGE J2_EXIT" />
+    <route id="route_0014" edges="C2_EDGE J3_EXIT" />
+</routes>
