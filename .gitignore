@@ -21,6 +21,13 @@ logs/
 # Data and datasets
 data/
 dataset/
+!data/
+data/*
+!data/annotations/
+data/annotations/*
+!data/annotations/camera_ground_truth.csv
+!data/annotations/camera_placement.csv
+
 
 # Generated outputs
 runs/

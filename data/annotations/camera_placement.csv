@@ -1,0 +1,7 @@
+video_id,camera_id,physical_junction_id,physical_approach_id,view_direction,verified_by,verified_date,verification_status,notes
+traffic east.mp4,,,,,,,pending,Filename is not physical placement evidence.
+traffic north.mp4,,,,,,,pending,Filename is not physical placement evidence.
+traffic south.mp4,,,,,,,pending,Filename is not physical placement evidence.
+traffic west.mp4,,,,,,,pending,Filename is not physical placement evidence.
+traffic1.mp4,,,,,,,pending,Camera placement and viewing direction are unconfirmed.
+traffic_test.mp4,,,,,,,pending,Camera placement and viewing direction are unconfirmed.
